@@ -1,5 +1,5 @@
--- USE [hierarchy]
--- GO
+USE [tempdb]
+GO
 
 SET NOCOUNT ON;
 
