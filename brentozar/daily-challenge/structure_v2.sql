@@ -2278,3 +2278,5 @@ values
 SELECT TOP (1000) [Id]
       ,[calories]
   FROM [tempdb].[dbo].[day_one_single_row]
+
+select * from STRING_SPLIT((select [calories] FROM [tempdb].[dbo].[day_one_single_row]), CHAR(10) ) ;
