@@ -1,6 +1,3 @@
-USE master;
-GO
-
 -- Create a new database called 'portfolio'
 -- Connect to the 'master' database to run this snippet
 USE master
@@ -14,8 +11,8 @@ IF NOT EXISTS (
 CREATE DATABASE portfolio
 GO
 
-use portfolio;
-go
+USE portfolio;
+GO
 
 IF NOT EXISTS ( SELECT  *
                 FROM    sys.schemas
@@ -164,15 +161,19 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 
 SELECT * FROM [portfolio].[cantine].[canteen_status];
 
--- WITH Products_CTE ([Date], [Product], [Price]) AS
--- (
---     SELECT 
---         CAST([Date] AS datetime, 107)
---         ,[Product]
---         ,CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)) as Price
---     FROM [portfolio].[cantine].[canteen_status]
--- ) 
--- SELECT * FROM Products_CTE
+WITH Products_CTE ([ConsumptionDate], [ConsumptionTime], [Product], [Price]) AS
+(
+    SELECT 
+        --CAST([Date] AS DATE)
+		CONVERT(date, [Date], 103) as ConsumptionDate
+		,CONVERT(time, [Time], 103) as ConsumptionTime
+        ,[Product]
+        ,CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)) as Price
+    FROM [portfolio].[cantine].[canteen_status]
+) 
+SELECT * FROM Products_CTE
+WHERE ConsumptionDate > CONVERT(date, '16-01-2023', 103);
+GO
 
 INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type])
 SELECT 
