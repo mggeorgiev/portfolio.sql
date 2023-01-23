@@ -158,13 +158,15 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'19-01-2023',N'12:31:00',N'113 - VIVA 1/4 FREE',1,N'0,00',N'12,57'),
 	 (N'20-01-2023',N'13:17:58',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'11,95'),
 	 (N'20-01-2023',N'13:18:10',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'11,09');
+INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'20-01-2023',N'12:06:52',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'9,29'),
+	 (N'23-01-2023',N'12:06:52',N'1 - MENU DU JOUR',1,N'7,43',N'1,86');
 
 SELECT * FROM [portfolio].[cantine].[canteen_status];
 
 WITH Products_CTE ([ConsumptionDate], [ConsumptionTime], [Product], [Price]) AS
 (
     SELECT 
-        --CAST([Date] AS DATE)
 		CONVERT(date, [Date], 103) as ConsumptionDate
 		,CONVERT(time, [Time], 103) as ConsumptionTime
         ,[Product]
@@ -175,8 +177,75 @@ SELECT * FROM Products_CTE
 WHERE ConsumptionDate > CONVERT(date, '16-01-2023', 103);
 GO
 
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('1 - MENU DU JOUR', 7.43,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('Menu du chef', 9.86,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('3 - MENU CLIN D''OEIL', 11.53,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('Menu gourmet', 15.73,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('5 - MENU DE NOEL', 12.93,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('6 - MENU ACTION', 10.57,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('Suplement', 1.09,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('Viennoiserie', 0.92,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('311 - DM Sandwich Maison', 1.8,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('212 - DM - COCA COLA ZERO 33cl', 0.62,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('209 - DM - MM ORANGE 33cl', 0.62,'external');
+INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type]) VALUES ('209 - DM - MM ORANGE 33cl', 0.62,'external');
+GO
+
+
 INSERT INTO [portfolio].[cantine].[items] ([name], [unitPrice], [type])
 SELECT 
     DISTINCT [Product], CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)), 'external'
 FROM [portfolio].[cantine].[canteen_status]
+WHERE [Product] NOT IN (SELECT [name] FROM [portfolio].[cantine].[items])
 ORDER BY [Product];
+
+-- Create a new table called '[consumption]' in schema '[cantine]'
+-- Drop the table if it already exists
+IF OBJECT_ID('[portfolio].[cantine].[consumption_log]', 'U') IS NOT NULL
+DROP TABLE [portfolio].[cantine].[consumption_log]
+GO
+-- Create the table in the specified schema
+CREATE TABLE [portfolio].[cantine].[consumption_log]
+(
+    [Id] INT Identity(1,1), -- Primary Key column
+	[ConsumptionDate] DATE,
+	[ConsumptionTime] TIME,
+	[Product] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
+	[Price] NUMERIC(5,2)
+);
+GO
+
+INSERT INTO [portfolio].[cantine].[consumption_log] ([ConsumptionDate], [ConsumptionTime], [Product], [Price] )
+	SELECT
+		CONVERT(date, [Date], 103) as ConsumptionDate
+		,CONVERT(time, [Time], 103) as ConsumptionTime
+        ,[Product]
+        ,CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)) as Price
+    FROM [portfolio].[cantine].[canteen_status];
+
+
+-- Create a new table called '[card_charges]' in schema '[dbo]'
+-- Drop the table if it already exists
+IF OBJECT_ID('[cantine].[card_charges]', 'U') IS NOT NULL
+DROP TABLE [cantine].[card_charges]
+GO
+-- Create the table in the specified schema
+CREATE TABLE [cantine].[card_charges]
+(
+	[Id] INT Identity(1,1), -- Primary Key column
+	[Charge_date] DATE,
+	[Amount] NUMERIC(5,2)
+	-- Specify more columns here
+);
+GO
+
+INSERT INTO [portfolio].[cantine].[card_charges] ([Charge_date],[Amount]) VALUES
+	 (CONVERT(date, '21-11-2022', 103), 33.2),
+	 (CONVERT(date, '28-11-2022', 103), 50.0),
+	 (CONVERT(date, '19-12-2022', 103), 50.0),
+	 (CONVERT(date, '09-01-2023', 103), 50.0),
+	 (CONVERT(date, '19-01-2023', 103), 20.0);
+GO
+
+SELECT * FROM [portfolio].[cantine].[card_charges];
+GO
