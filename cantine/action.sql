@@ -16,9 +16,6 @@ SELECT
 FROM [portfolio].[cantine].[items];
 GO
 
--- INSERT INTO [portfolio].[cantine].[consumption] ([itemId]) SELECT Id from [portfolio].[cantine].[items] where [name] = '1 - MENU DU JOUR'; 
--- INSERT INTO [portfolio].[cantine].[consumption] ([itemId]) SELECT Id from [portfolio].[cantine].[items] where [name] = '311 - DM Sandwich Maison - 1.80€'; 
-
 SELECT 
     [name]
     ,SUM([unitPrice]) as Total_Price
@@ -108,3 +105,21 @@ SELECT * FROM [portfolio].[cantine].V_CONSUMPTION_RESTARTED
 WHERE [ConsumptionDate] > CONVERT(date, '16-01-2023', 103)
 ORDER BY [ConsumptionDate] ASC, [ConsumptionTime];
 GO
+
+CREATE OR ALTER VIEW [cantine].V_CONSUMPTION_ITEMS AS
+SELECT 
+      DATEPART(yyyy, [ConsumptionDate]) as [year]
+      ,DATEPART(MM, [ConsumptionDate]) as [month]
+      ,DATEPART(dw, [ConsumptionDate]) as [weekday]
+      ,[Product]
+      ,COUNT([Product]) as [ProductCount]
+      ,SUM([Price]) as [Total_Price]
+  FROM [portfolio].[cantine].[consumption_log]
+  GROUP BY [Product], DATEPART(yyyy, [ConsumptionDate]),DATEPART(MM, [ConsumptionDate]), DATEPART(dw, [ConsumptionDate]);
+GO
+
+SELECT * FROM [portfolio].[cantine].[V_CONSUMPTION_ITEMS]
+ORDER BY [year], [month], [weekday];
+
+SELECT * FROM [portfolio].[cantine].[V_CONSUMPTION_ITEMS]
+ORDER BY [year], [month], [weekday];
