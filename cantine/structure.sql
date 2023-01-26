@@ -160,7 +160,17 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'20-01-2023',N'13:18:10',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'11,09');
 INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
 	 (N'20-01-2023',N'12:06:52',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'9,29'),
-	 (N'23-01-2023',N'12:06:52',N'1 - MENU DU JOUR',1,N'7,43',N'1,86');
+	 (N'23-01-2023',N'12:06:52',N'1 - MENU DU JOUR',1,N'7,43',N'1,86'),
+	 (N'23-01-2023',N'12:06:52',N'113 - VIVA 1/4 FREE',1,N'0,00',N'1,86'),
+	 (N'24-01-2023',N'12:14:04',N'1 - MENU DU JOUR',1,N'7,43',N'44,43'),
+	 (N'24-01-2023',N'12:14:04',N'113 - VIVA 1/4 FREE',1,N'0,00', N'44,43'),
+	 (N'25-01-2023',N'12:00:46',N'1 - MENU DU JOUR',1,N'7,43',N'37,00'),
+	 (N'25-01-2023',N'12:00:46',N'107 - ROSPORT 1/4',1,N'0,53', N'36,47'),
+	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04');
+
+INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'25-01-2023',N'12:00:46',N'1 - MENU DU JOUR',1,N'7,43',N'37,00'),
+	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04');
 
 SELECT * FROM [portfolio].[cantine].[canteen_status];
 
@@ -222,6 +232,7 @@ INSERT INTO [portfolio].[cantine].[consumption_log] ([ConsumptionDate], [Consump
         ,[Product]
         ,CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)) as Price
     FROM [portfolio].[cantine].[canteen_status];
+GO
 
 
 -- Create a new table called '[card_charges]' in schema '[dbo]'
@@ -244,7 +255,8 @@ INSERT INTO [portfolio].[cantine].[card_charges] ([Charge_date],[Amount]) VALUES
 	 (CONVERT(date, '28-11-2022', 103), 50.0),
 	 (CONVERT(date, '19-12-2022', 103), 50.0),
 	 (CONVERT(date, '09-01-2023', 103), 50.0),
-	 (CONVERT(date, '19-01-2023', 103), 20.0);
+	 (CONVERT(date, '19-01-2023', 103), 20.0),
+	 (CONVERT(date, '24-01-2023', 103), 50.0);
 GO
 
 SELECT * FROM [portfolio].[cantine].[card_charges];
