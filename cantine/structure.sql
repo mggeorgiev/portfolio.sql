@@ -166,11 +166,12 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'24-01-2023',N'12:14:04',N'113 - VIVA 1/4 FREE',1,N'0,00', N'44,43'),
 	 (N'25-01-2023',N'12:00:46',N'1 - MENU DU JOUR',1,N'7,43',N'37,00'),
 	 (N'25-01-2023',N'12:00:46',N'107 - ROSPORT 1/4',1,N'0,53', N'36,47'),
-	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04');
-
+	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04'),
+	 (N'26-01-2023',N'12:16:08',N'1 - MENU DU JOUR',2,N'7,43',N'14,18'),
+	 (N'26-01-2023',N'12:16:08',N'113 - VIVA 1/4 FREE',2,N'0,00', N'14,18');
 INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
-	 (N'25-01-2023',N'12:00:46',N'1 - MENU DU JOUR',1,N'7,43',N'37,00'),
-	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04');
+	 (N'27-01-2023',N'12:19:26',N'3 - MENU CLIN D''OEIL',1,N'11,53', N'2,65'),
+	 (N'27-01-2023',N'12:19:26',N'113 - VIVA 1/4 FREE',1,N'0,00', N'2,65');
 
 SELECT * FROM [portfolio].[cantine].[canteen_status];
 
@@ -221,16 +222,18 @@ CREATE TABLE [portfolio].[cantine].[consumption_log]
 	[ConsumptionDate] DATE,
 	[ConsumptionTime] TIME,
 	[Product] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, 
-	[Price] NUMERIC(5,2)
+	[Price] NUMERIC(5,2),
+	[Saldo] NUMERIC(5,2)
 );
 GO
 
-INSERT INTO [portfolio].[cantine].[consumption_log] ([ConsumptionDate], [ConsumptionTime], [Product], [Price] )
+INSERT INTO [portfolio].[cantine].[consumption_log] ([ConsumptionDate], [ConsumptionTime], [Product], [Price], [Saldo] )
 	SELECT
 		CONVERT(date, [Date], 103) as ConsumptionDate
 		,CONVERT(time, [Time], 103) as ConsumptionTime
         ,[Product]
         ,CAST(REPLACE([Price],',','.') AS NUMERIC(5,2)) as Price
+		,CAST(REPLACE([Saldo],',','.') AS NUMERIC(5,2)) as Saldo
     FROM [portfolio].[cantine].[canteen_status];
 GO
 
@@ -256,7 +259,8 @@ INSERT INTO [portfolio].[cantine].[card_charges] ([Charge_date],[Amount]) VALUES
 	 (CONVERT(date, '19-12-2022', 103), 50.0),
 	 (CONVERT(date, '09-01-2023', 103), 50.0),
 	 (CONVERT(date, '19-01-2023', 103), 20.0),
-	 (CONVERT(date, '24-01-2023', 103), 50.0);
+	 (CONVERT(date, '24-01-2023', 103), 50.0),
+	 (CONVERT(date, '29-01-2023', 103), 50.0);
 GO
 
 SELECT * FROM [portfolio].[cantine].[card_charges];
