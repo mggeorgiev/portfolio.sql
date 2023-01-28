@@ -48,7 +48,7 @@ WHERE (combo_price_multiplied % 0.2 = 0)
   AND price_two <> '0.00';
 GO
 
-CREATE OR ALTER VIEW [cantine].V_CONSUMPTION_RESTARTED AS
+CREATE OR ALTER VIEW [cantine].[V_CONSUMPTION_RESTARTED] AS
 SELECT TOP (1000) [Id]
       ,[ConsumptionDate]
       ,[ConsumptionTime]
@@ -84,7 +84,7 @@ SELECT TOP (1000) [Id]
   WHERE [ConsumptionDate] > CONVERT(date, '16-01-2023', 103);
 GO
 
-CREATE OR ALTER VIEW [cantine].V_CONSUMPTION AS
+CREATE OR ALTER VIEW [cantine].[V_CONSUMPTION] AS
 SELECT TOP (1000) [Id]
       ,[ConsumptionDate]
       ,[ConsumptionTime]
@@ -96,17 +96,17 @@ SELECT TOP (1000) [Id]
   FROM [portfolio].[cantine].[consumption_log];
 GO
 
-SELECT * FROM [portfolio].[cantine].V_CONSUMPTION
+SELECT * FROM [portfolio].[cantine].[V_CONSUMPTION]
 WHERE [ConsumptionDate] > CONVERT(date, '16-01-2023', 103)
 ORDER BY [ConsumptionDate] ASC, [ConsumptionTime];
 GO
 
-SELECT * FROM [portfolio].[cantine].V_CONSUMPTION_RESTARTED
+SELECT * FROM [portfolio].[cantine].[V_CONSUMPTION_RESTARTED]
 WHERE [ConsumptionDate] > CONVERT(date, '16-01-2023', 103)
 ORDER BY [ConsumptionDate] ASC, [ConsumptionTime];
 GO
 
-CREATE OR ALTER VIEW [cantine].V_CONSUMPTION_ITEMS AS
+CREATE OR ALTER VIEW [cantine].[V_CONSUMPTION_ITEMS] AS
 SELECT 
       DATEPART(yyyy, [ConsumptionDate]) as [year]
       ,DATEPART(MM, [ConsumptionDate]) as [month]
@@ -123,3 +123,31 @@ ORDER BY [year], [month], [weekday];
 
 SELECT * FROM [portfolio].[cantine].[V_CONSUMPTION_ITEMS]
 ORDER BY [year], [month], [weekday];
+
+SELECT * FROM [portfolio].[cantine].[consumption_log];
+
+CREATE OR ALTER VIEW [cantine].[V_REMAINING_OPTIONS] AS
+WITH CTE_Saldo ([Saldo]) AS
+(
+(SELECT 
+        MIN([Saldo]) 
+    FROM [portfolio].[cantine].[consumption_log]
+    WHERE ConsumptionDate = (
+        SELECT MAX(ConsumptionDate) FROM [portfolio].[cantine].[consumption_log]))
+)
+SELECT 
+    [Id]
+    ,[name]
+    ,[unitPrice]
+    ,[type]
+    ,(SElECT * FROM CTE_Saldo) as Saldo
+    ,(SElECT * FROM CTE_Saldo) / [unitPrice] as TimesInSaldo
+    ,FLOOR((SElECT * FROM CTE_Saldo) / [unitPrice]) AS Integer
+    ,(SElECT * FROM CTE_Saldo) % [unitPrice] as Remainder
+FROM [portfolio].[cantine].[items]
+WHERE [unitPrice] <= ( SElECT * FROM CTE_Saldo)
+AND [unitPrice] <> 0.00;
+GO
+
+SELECT * FROM [portfolio].[cantine].[V_REMAINING_OPTIONS];
+GO
