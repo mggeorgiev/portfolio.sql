@@ -91,8 +91,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'22-11-2022',N'12:00:22',N'107 - ROSPORT 1/4',1,N'0,53',N'20,94'),
 	 (N'24-11-2022',N'12:05:22',N'1 - MENU DU JOUR',1,N'7,43',N'13,51'),
 	 (N'24-11-2022',N'12:05:22',N'113 - VIVA 1/4 FREE',1,N'0,00',N'13,51'),
-	 (N'24-11-2022',N'16:34:58',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'12,89');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'24-11-2022',N'16:34:58',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'12,89'),
 	 (N'24-11-2022',N'16:35:08',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'12,03'),
 	 (N'28-11-2022',N'08:10:04',N'305 - Dallmayr Sweet 5 - 0.90€',1,N'0,90',N'11,13'),
 	 (N'28-11-2022',N'08:09:46',N'312 - DM Traingles - 2.50€',1,N'2,50',N'8,63'),
@@ -102,8 +101,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'28-11-2022',N'16:05:52',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'49,19'),
 	 (N'05-12-2022',N'11:56:24',N'1 - MENU DU JOUR',1,N'7,43',N'41,76'),
 	 (N'05-12-2022',N'11:56:24',N'113 - VIVA 1/4 FREE',1,N'0,00',N'41,76'),
-	 (N'05-12-2022',N'17:33:12',N'302 - Dallmayr Sweet 2 - 0.75€',1,N'0,75',N'41,01');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'05-12-2022',N'17:33:12',N'302 - Dallmayr Sweet 2 - 0.75€',1,N'0,75',N'41,01'),
 	 (N'05-12-2022',N'08:51:58',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'25,54'),
 	 (N'06-12-2022',N'09:35:54',N'304 - Dallmayr Sweet 4 - 0.85€',1,N'0,85',N'40,16'),
 	 (N'06-12-2022',N'11:59:54',N'6 - MENU ACTION',1,N'10,57',N'29,59'),
@@ -113,8 +111,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'06-12-2022',N'08:52:48',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'23,74'),
 	 (N'08-12-2022',N'11:57:28',N'2 - MENU DU CHEF',1,N'9,86',N'13,88'),
 	 (N'08-12-2022',N'11:57:28',N'113 - VIVA 1/4 FREE',1,N'0,00',N'13,88'),
-	 (N'12-12-2022',N'12:38:32',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'12,08');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'12-12-2022',N'12:38:32',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'12,08'),
 	 (N'12-12-2022',N'12:39:04',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'10,28'),
 	 (N'12-12-2022',N'14:38:34',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'9,66'),
 	 (N'12-12-2022',N'14:38:40',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'9,04'),
@@ -124,8 +121,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'19-12-2022',N'12:02:04',N'113 - VIVA 1/4 FREE',1,N'0,00',N'48,15'),
 	 (N'19-12-2022',N'12:25:26',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'47,29'),
 	 (N'19-12-2022',N'16:30:04',N'303 - Dallmayr Sweet 3 - 0.80€',1,N'0,80',N'46,49'),
-	 (N'19-12-2022',N'16:30:22',N'301 - Dallmayr Sweet 1 - 0.70€',1,N'0,70',N'45,79');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'19-12-2022',N'16:30:22',N'301 - Dallmayr Sweet 1 - 0.70€',1,N'0,70',N'45,79'),
 	 (N'02-01-2023',N'12:11:42',N'1 - MENU DU JOUR',1,N'7,43',N'38,36'),
 	 (N'02-01-2023',N'12:11:42',N'107 - ROSPORT 1/4',1,N'0,53',N'37,83'),
 	 (N'03-01-2023',N'12:07:16',N'1 - MENU DU JOUR',1,N'7,43',N'30,40'),
@@ -135,8 +131,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'05-01-2023',N'08:38:12',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'20,64'),
 	 (N'05-01-2023',N'11:56:54',N'1 - MENU DU JOUR',1,N'7,43',N'13,21'),
 	 (N'05-01-2023',N'11:56:54',N'107 - ROSPORT 1/4',1,N'0,53',N'12,68'),
-	 (N'06-01-2023',N'11:56:38',N'3 - MENU CLIN D''OEIL',1,N'11,53',N'1,15');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'06-01-2023',N'11:56:38',N'3 - MENU CLIN D''OEIL',1,N'11,53',N'1,15'),
 	 (N'06-01-2023',N'11:56:38',N'107 - ROSPORT 1/4',1,N'0,53',N'0,62'),
 	 (N'09-01-2023',N'09:21:10',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'48,82'),
 	 (N'09-01-2023',N'12:07:40',N'1 - MENU DU JOUR',1,N'7,43',N'41,39'),
@@ -146,8 +141,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'11-01-2023',N'11:55:34',N'1 - MENU DU JOUR',1,N'7,43',N'22,43'),
 	 (N'11-01-2023',N'11:55:34',N'113 - VIVA 1/4 FREE',1,N'0,00',N'22,43'),
 	 (N'11-01-2023',N'15:24:20',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'21,81'),
-	 (N'11-01-2023',N'15:24:34',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'21,19');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'11-01-2023',N'15:24:34',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'21,19'),
 	 (N'12-01-2023',N'12:04:16',N'1 - MENU DU JOUR',1,N'7,43',N'13,76'),
 	 (N'12-01-2023',N'12:04:16',N'113 - VIVA 1/4 FREE',1,N'0,00',N'13,76'),
 	 (N'12-01-2023',N'15:06:18',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'12,90'),
@@ -157,8 +151,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'19-01-2023',N'12:31:00',N'1 - MENU DU JOUR',1,N'7,43',N'12,57'),
 	 (N'19-01-2023',N'12:31:00',N'113 - VIVA 1/4 FREE',1,N'0,00',N'12,57'),
 	 (N'20-01-2023',N'13:17:58',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62',N'11,95'),
-	 (N'20-01-2023',N'13:18:10',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'11,09');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'20-01-2023',N'13:18:10',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86',N'11,09'),
 	 (N'20-01-2023',N'12:06:52',N'311 - DM Sandwich Maison - 1.80€',1,N'1,80',N'9,29'),
 	 (N'23-01-2023',N'12:06:52',N'1 - MENU DU JOUR',1,N'7,43',N'1,86'),
 	 (N'23-01-2023',N'12:06:52',N'113 - VIVA 1/4 FREE',1,N'0,00',N'1,86'),
@@ -168,8 +161,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'25-01-2023',N'12:00:46',N'107 - ROSPORT 1/4',1,N'0,53', N'36,47'),
 	 (N'25-01-2023',N'12:03:46',N'1 - MENU DU JOUR',1,N'7,43', N'29,04'),
 	 (N'26-01-2023',N'12:16:08',N'1 - MENU DU JOUR',2,N'7,43',N'14,18'),
-	 (N'26-01-2023',N'12:16:08',N'113 - VIVA 1/4 FREE',2,N'0,00', N'14,18');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'26-01-2023',N'12:16:08',N'113 - VIVA 1/4 FREE',2,N'0,00', N'14,18'),
 	 (N'27-01-2023',N'12:19:26',N'3 - MENU CLIN D''OEIL',1,N'11,53', N'2,65'),
 	 (N'27-01-2023',N'12:19:26',N'113 - VIVA 1/4 FREE',1,N'0,00', N'2,65'),
 	 (N'30-01-2023',N'12:38:00',N'1 - MENU DU JOUR',1,N'7,43', N'45,22'),
@@ -180,8 +172,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'01-02-2023',N'12:01:18',N'113 - VIVA 1/4 FREE',1,N'0,00', N'30,36'),
 	 (N'02-02-2023',N'11:57:46',N'998 - Donnation ABC Canteen (CR 450)',1,N'3,00', N'27,36'),
 	 (N'02-02-2023',N'12:03:58',N'1 - MENU DU JOUR',1,N'7,43', N'19,93'),
-	 (N'02-02-2023',N'12:03:58',N'113 - VIVA 1/4 FREE',1,N'0,00', N'19,93');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'02-02-2023',N'12:03:58',N'113 - VIVA 1/4 FREE',1,N'0,00', N'19,93'),
 	 (N'03-02-2023',N'10:32:32',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62', N'19,31'),
 	 (N'03-02-2023',N'10:32:48',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'18,58'),
 	 (N'03-02-2023',N'10:32:58',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62', N'17,96'),
@@ -190,8 +181,7 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'03-02-2023',N'10:33:38',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'15,77'),
 	 (N'03-02-2023',N'10:34:00',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'15,04'),
 	 (N'03-02-2023',N'11:59:30',N'1 - MENU DU JOUR',1,N'7,43', N'7,61'),
-	 (N'03-02-2023',N'11:59:30',N'113 - VIVA 1/4 FREE',1,N'0,00', N'7,61');
-INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price,Saldo) VALUES
+	 (N'03-02-2023',N'11:59:30',N'113 - VIVA 1/4 FREE',1,N'0,00', N'7,61'),
 	 (N'06-02-2023',N'09:41:12',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86', N'6,75'),
 	 (N'06-02-2023',N'09:41:24',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'6,02'),
 	 (N'06-02-2023',N'09:41:36',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'5,29'),
@@ -200,7 +190,22 @@ INSERT INTO portfolio.cantine.canteen_status ([Date],[Time],Product,Amount,Price
 	 (N'06-02-2023',N'18:13:34',N'301 - Dallmayr Sweet 1 - 0.70€',1,N'0,70', N'0,99'),
 	 (N'07-02-2023',N'09:32:48',N'209 - DM - MM ORANGE 33cl 0.86€',1,N'0,86', N'0,13'),
 	 (N'07-02-2023',N'12:02:14',N'1 - MENU DU JOUR',1,N'7,43', N'42,70'),
-	 (N'07-02-2023',N'12:02:14',N'113 - VIVA 1/4 FREE',1,N'0,00', N'42,70');
+	 (N'07-02-2023',N'12:02:14',N'113 - VIVA 1/4 FREE',1,N'0,00', N'42,70'),
+	 (N'13-02-2023',N'12:03:16',N'1 - MENU DU JOUR',1,N'7,43', N'35,27'),
+	 (N'13-02-2023',N'12:03:16',N'113 - VIVA 1/4 FREE',1,N'0,00', N'35,27'),
+	 (N'13-02-2023',N'12:03:16',N'3 - MENU CLIN D'OEIL',1,N'11,53', N'23,74'),
+	 (N'13-02-2023',N'12:03:16',N'107 - ROSPORT 1/4',1,N'0,53', N'23,74'),
+	 (N'13-02-2023',N'14:16:32',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62', N'22,59'),
+	 (N'15-02-2023',N'12:00:08',N'3 - MENU CLIN D'OEIL',1,N'11,53', N'61,06'),
+	 (N'15-02-2023',N'12:00:08',N'113 - VIVA 1/4 FREE',1,N'0,00', N'61,06'),
+	 (N'15-02-2023',N'12:02:20',N'1 - MENU DU JOUR',1,N'7,43', N'53,63'),
+	 (N'15-02-2023',N'12:02:20',N'113 - VIVA 1/4 FREE',1,N'0,00', N'53,63'),
+	 (N'16-02-2023',N'08:55:46',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62', N'53,01'),	 
+	 (N'16-02-2023',N'08:55:52',N'206 - DM - PERRIER 33cl 0.73€',1,N'0,73', N'52,28'),
+	 (N'16-02-2023',N'08:55:56',N'212 - DM - COCA COLA ZERO 33cl 0.62€',1,N'0,62', N'51,66'),	 
+	 (N'16-02-2023',N'11:56:20',N'1 - MENU DU JOUR',1,N'7,43', N'44,23'),
+	 (N'16-02-2023',N'11:56:20',N'113 - VIVA 1/4 FRE',1,N'0,00', N'44,23')
+	 ;
 
 
 SELECT * FROM [portfolio].[cantine].[canteen_status];
@@ -291,7 +296,8 @@ INSERT INTO [portfolio].[cantine].[card_charges] ([Charge_date],[Amount]) VALUES
 	 (CONVERT(date, '19-01-2023', 103), 20.0),
 	 (CONVERT(date, '24-01-2023', 103), 50.0),
 	 (CONVERT(date, '29-01-2023', 103), 50.0),
-	 (CONVERT(date, '07-02-2023', 103), 50.0);
+	 (CONVERT(date, '07-02-2023', 103), 50.0),
+	 (CONVERT(date, '15-02-2023', 103), 50.0);
 GO
 
 SELECT * FROM [portfolio].[cantine].[card_charges];
