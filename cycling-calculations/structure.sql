@@ -13,7 +13,7 @@ CREATE TABLE
 INSERT INTO
   public.tyres ("name", "diameter")
 VALUES
-  ('whatever', 27.5)
+  ('whatever', 27.5);
 
 /*
 Chainring = Toothed ring attached to the crank.
@@ -29,15 +29,15 @@ CREATE TABLE public.chainrings (
 
 INSERT INTO public.chainrings
 ( "name", cogs)
-VALUES('front_big', 44);
+VALUES('third', 44);
 
 INSERT INTO public.chainrings
 ( "name", cogs)
-VALUES('front_medium', 32);
+VALUES('second', 32);
 
 INSERT INTO public.chainrings
 ( "name", cogs)
-VALUES('front_small', 22);
+VALUES('first', 22);
 
 /*Sprocket = Toothed ring attached to rear wheel.*/
 
