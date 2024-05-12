@@ -5,7 +5,7 @@ SELECT
   s.id AS sprockets_id
 FROM
   public.chainrings c
-  CROSS JOIN public.sprockets s
+  CROSS JOIN public.sprockets s;
 
 CREATE OR REPLACE VIEW
   public.v_gear_ratios AS
@@ -16,7 +16,7 @@ SELECT
 FROM
   public.v_gear_combinations comb
   JOIN public.sprockets s ON s.id = comb.sprockets_id
-  JOIN public.chainrings c ON c.id = comb.chainrings_id
+  JOIN public.chainrings c ON c.id = comb.chainrings_id;
 
 CREATE OR REPLACE VIEW
   public.v_gear_inches AS
