@@ -17,9 +17,6 @@ CREATE TABLE [dbo].[Sudoku]
 );
 GO
 
-DELETE FROM [dbo].[Sudoku];
-GO
-
 INSERT INTO Sudoku (row, col, value) VALUES
 (1, 9, 3),
 (2, 8, 1), (2, 9, 8),
