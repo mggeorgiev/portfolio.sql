@@ -1,6 +1,29 @@
---CREATE SCHEMA EngineeringPaths AUTHORIZATION dbo;
+IF OBJECT_ID('EngineeringPaths.Jobs', 'U') IS NOT NULL
+DROP TABLE EngineeringPaths.Jobs;
+GO
 
+IF OBJECT_ID('EngineeringPaths.Levels', 'U') IS NOT NULL
+DROP TABLE EngineeringPaths.Levels;
+GO
+
+IF OBJECT_ID('EngineeringPaths.Axes', 'U') IS NOT NULL
+DROP TABLE EngineeringPaths.Axes;
+GO
+
+IF OBJECT_ID('EngineeringPaths.CareerPaths', 'U') IS NOT NULL
 DROP TABLE EngineeringPaths.CareerPaths;
+GO
+
+IF OBJECT_ID('EngineeringPaths.JobLevels', 'U') IS NOT NULL
+DROP TABLE EngineeringPaths.JobLevels;
+GO
+
+IF SCHEMA_ID('EngineeringPaths') IS NOT NULL
+DROP SCHEMA [EngineeringPaths];
+GO
+
+CREATE SCHEMA [EngineeringPaths] AUTHORIZATION dbo;
+GO
 
 CREATE TABLE EngineeringPaths.CareerPaths (
 	Id int IDENTITY(1,1) NOT NULL,
@@ -8,13 +31,12 @@ CREATE TABLE EngineeringPaths.CareerPaths (
 	Description nvarchar(MAX) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 	CONSTRAINT PK_CareerPaths PRIMARY KEY (Id)
 );
+GO
 
 INSERT INTO EngineeringPaths.CareerPaths (Name,Description) VALUES
 	 (N'Seniority',N'Senior individual contributor (IC) is a type of career destination that typically refers to a highly skilled engineer. These individuals are technical experts in their field and may even act as leaders for others, but they primarily focus on completing the work themselves rather than managing a team. They do not own their own company or work independently.'),
 	 (N'Management',N'Engineering managers require a strong understanding of technical concepts and skills, but their primary responsibilities involve leading, overseeing, hiring, and mentoring other technical professionals. These management skills are also crucial and not commonly found in abundance.'),
 	 (N'Independence',N'Consultant offers independent advice to the client, while a contractor follows the client''s instructions. In other words, a consultant makes decisions on their own, while a contractor is not autonomous.');
-
-DROP TABLE EngineeringPaths.Axes;
 
 CREATE TABLE EngineeringPaths.Axes (
 	Id int IDENTITY(1,1) NOT NULL,
@@ -28,8 +50,6 @@ INSERT INTO EngineeringPaths.Axes (Name, [Description]) VALUES ('System', 'level
 INSERT INTO EngineeringPaths.Axes (Name, [Description]) VALUES ('People', 'relationship with the team(s)');
 INSERT INTO EngineeringPaths.Axes (Name, [Description]) VALUES ('Process', 'level of engagement with the development process');
 INSERT INTO EngineeringPaths.Axes (Name, [Description]) VALUES ('Influence', 'scope of influence of the position');
-
-DROP TABLE EngineeringPaths.Levels;
 
 CREATE TABLE EngineeringPaths.Levels (
 	Id int IDENTITY(1,1) NOT NULL,
@@ -75,8 +95,6 @@ INSERT INTO EngineeringPaths.Levels (Name, [Description], [AxisId], [LevelId]) V
 	('Company', 'makes an impact on the whole tech organization', (select Id from EngineeringPaths.Axes where Name = 'Influence'), 4),
 	('Community', 'makes an impact on the tech community', (select Id from EngineeringPaths.Axes where Name = 'Influence'), 5);
 
-DROP TABLE EngineeringPaths.Jobs;
-
 CREATE TABLE EngineeringPaths.Jobs (
 	Id int IDENTITY(1,1) NOT NULL,
 	Name nvarchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -92,8 +110,6 @@ INSERT INTO EngineeringPaths.Jobs ([Name], Company) VALUES
 	('SYSTEMS DESIGN EXPERT', 'FUJITSU TECHNOLOGY SOLUTIONS (LUXEMBOURG) S.A'),
 	('SENIOR MANAGER', 'DELOITEE GLOBAL SERVICES SARL')
 	;
-
-DROP TABLE EngineeringPaths.JobLevels;
 
 CREATE TABLE EngineeringPaths.JobLevels (
 	Id int IDENTITY(1,1) NOT NULL,
