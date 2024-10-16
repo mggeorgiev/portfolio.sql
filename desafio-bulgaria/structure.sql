@@ -35,6 +35,7 @@ INSERT INTO [dbo].[season] ([name], [startDate], [endDate],[episodes]) VALUES (2
 INSERT INTO [dbo].[season] ([name], [startDate], [endDate],[episodes]) VALUES (3, '20210904 00:00:00 AM', '20211203 00:00:00 AM', 67);
 INSERT INTO [dbo].[season] ([name], [startDate], [endDate],[episodes]) VALUES (4, '20220903 00:00:00 AM', '20221129 00:00:00 AM', 63);
 INSERT INTO [dbo].[season] ([name], [startDate], [endDate],[episodes]) VALUES (5, '20230902 00:00:00 AM', '20231204 00:00:00 AM', 20);
+INSERT INTO [dbo].[season] ([name], [startDate], [endDate],[episodes]) VALUES (6, '20240915 00:00:00 AM', '20241201 00:00:00 AM', 1);
 
 USE desafio;
 GO
@@ -383,7 +384,7 @@ INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SEL
 INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SELECT N'Стратимир Георгиев', 'm', 28, 3, [id] FROM [dbo].[city] WHERE [dbo].[city].[name] = N'Варна';
 INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SELECT N'Паулина Горанов', 'f', 24, 3, [id] FROM [dbo].[city] WHERE [dbo].[city].[name] = N'Полша';
 INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SELECT N'Симеон Станкович', 'm', 25, 3, [id] FROM [dbo].[city] WHERE [dbo].[city].[name] = N'София';
-INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SELECT N'Андрей Гридин', 'm', 28, 3, [id] FROM [dbo].[city] WHERE [dbo].[city].[name] = N'Казахстан';
+INSERT INTO [dbo].[participant] ([name], [sex], [age], [seasonId], [cityId]) SELECT N'Андрей Гридин', 'm', 33, 3, [id] FROM [dbo].[city] WHERE [dbo].[city].[name] = N'Казахстан';
 
 /*Season 4*/
 
