@@ -1,13 +1,7 @@
--- SELECT TOP (1000) *
---   FROM [portfolio].[township].[items]
---   JOIN [portfolio].[township].[constraints] ON [portfolio].[township].[items].[constraintId] = [portfolio].[township].[constraints].[Id];
--- GO
-
 SELECT TOP (1000) 
     [portfolio].[township].[items].[Id],
     [portfolio].[township].[items].[name] as [itemName],
     [portfolio].[township].[constraints].[name] AS [constraintName],
-    [portfolio].[township].[items].[cost] AS [cost],
     [portfolio].[township].[items].[productiontime] as [productionTime],
     [portfolio].[township].[dependancies].[parentId] AS [parentId],
     [portfolio].[township].[dependancies].[items] AS [numberOfItems]
@@ -22,7 +16,6 @@ SELECT TOP (1000)
     [portfolio].[township].[items].[Id],
     [portfolio].[township].[items].[name] as [itemName],
     [portfolio].[township].[constraints].[name] AS [constraintName],
-    [portfolio].[township].[items].[cost] AS [cost],
     [portfolio].[township].[items].[productiontime] as [productionTime],
     [portfolio].[township].[dependancies].[parentId] AS [parentId],
     [portfolio].[township].[dependancies].[items] AS [numberOfItems]
