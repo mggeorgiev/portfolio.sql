@@ -73,7 +73,7 @@ INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('sheep farm');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('sugar factory');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('dairy factory');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('feed mill');
-
+INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('apiary');
 GO
 
 INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraintId]) VALUES 
@@ -111,6 +111,7 @@ INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraint
 ('eggs', 60, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'chicken coop'))
 ,('milk', 20, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'cowshed'))
 ,('wool', 240, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'sheep farm'))
+,('honeycombs', 360, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'apiary'))
 ;
 GO
 
