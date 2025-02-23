@@ -1,3 +1,7 @@
+USE portfolio;
+GO
+
+CREATE OR ALTER VIEW [township].[V_ITEMS] AS
 SELECT TOP (1000) 
     [portfolio].[township].[items].[Id],
     [portfolio].[township].[items].[name] as [itemName],
@@ -24,3 +28,20 @@ SELECT TOP (1000)
   LEFT JOIN [portfolio].[township].[dependancies] ON [portfolio].[township].[items].[Id] = [portfolio].[township].[dependancies].[itemId]
   WHERE [portfolio].[township].[dependancies].[parentId] IS NOT NULL
 GO
+
+SELECT * FROM [portfolio].[township].[V_ITEMS];
+GO
+
+CREATE OR ALTER VIEW [township].[V_CONSTRAINTS] AS
+SELECT TOP (1000) 
+    [portfolio].[township].[constraints].[Id] as constriantId
+    , [portfolio].[township].[constraints].[name] as constraintName
+    ,[portfolio].[township].[items].[Id]
+    ,[portfolio].[township].[items].[name] as itemMame
+    ,[portfolio].[township].[items].[productiontime] as productionTime
+  FROM [portfolio].[township].[constraints]
+  JOIN [portfolio].[township].[items] on [portfolio].[township].[constraints].[Id] = [portfolio].[township].[items].[constraintId]
+  ORDER BY constriantId, productionTime, itemMame;
+GO
+
+SELECT * FROM [township].[V_CONSTRAINTS];
