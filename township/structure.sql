@@ -134,7 +134,7 @@ INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraint
 ('cream', 11, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'dairy factory'))
 ,('cheese', 27, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'dairy factory'))
 ,('butter', 54, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'dairy factory'))
-,('yogurt', 54, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'dairy factory'))
+,('yogurt', 81, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'dairy factory'))
 ;
 GO
 
