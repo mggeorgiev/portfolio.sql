@@ -195,7 +195,7 @@ BEGIN
             RecursiveCTE rc ON rc.parentId = d.itemId
     )
     SELECT 
-        * 
+        *
     FROM 
         RecursiveCTE
     ORDER BY 
@@ -203,5 +203,32 @@ BEGIN
 END
 GO
 -- -- example to execute the stored procedure we just created
-EXECUTE township.ProductionLine @itemName='pizza'
+EXECUTE township.ProductionLine @itemName='pizza';
 GO
+
+DECLARE @itemName VARCHAR(50);
+
+-- Declare a cursor to iterate through each constraintId
+DECLARE dependancy_cursor CURSOR FOR
+SELECT DISTINCT [name]
+FROM portfolio.township.items
+WHERE [name] NOT IN ('');
+
+-- Open the cursor
+OPEN dependancy_cursor;
+
+-- Fetch the first constraintId
+FETCH NEXT FROM dependancy_cursor INTO @itemName;
+
+-- Loop through each @itemName
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    -- Print the constraintId (for demonstration purposes)
+    PRINT 'Processing item: ' + CAST(@itemName AS VARCHAR);
+    EXECUTE township.ProductionLine @itemName=@itemName
+    -- Fetch the next constraintId
+    FETCH NEXT FROM dependancy_cursor INTO @itemName;
+END
+-- Close and deallocate the cursor
+CLOSE dependancy_cursor;
+DEALLOCATE dependancy_cursor;
