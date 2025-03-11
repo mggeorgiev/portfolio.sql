@@ -81,6 +81,7 @@ INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('sheep farm');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('snack factory');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('sugar factory');
 INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('textile factory');
+INSERT INTO [portfolio].[township].[constraints]([name]) VALUES ('ship');
 GO
 
 INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraintId]) VALUES 
@@ -100,7 +101,19 @@ INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraint
 ('potato', 240, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field')),
 ('cacao', 480, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field')),
 ('rubber tree', 720, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field')),
-('silk', 900, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field'));
+('silk', 900, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field')),
+('cork oak', 600, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field')),
+('pepper', 600, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'field'));
+GO
+
+/*Ships*/
+INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraintId]) VALUES 
+('grapes', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship')),
+('olives', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship')),
+('key lime', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship')),
+('peach', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship')),
+('watermelon', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship')),
+('plum', 1, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'ship'));
 GO
 
 /*Bakery*/
@@ -154,6 +167,7 @@ INSERT INTO [portfolio].[township].[items]([name], [productiontime], [constraint
 ,('peach marmalade', 150, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'jam factory'))
 ,('watermelon jam', 180, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'jam factory'))
 ,('plum jam', 240, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'jam factory'))
+,('grape jelly', 210, (SELECT Id FROM [portfolio].[township].[constraints] WHERE [name] = 'jam factory'))
 ;
 GO
 
@@ -272,5 +286,12 @@ INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items])
 INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'honey gingebread'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'wheat'), 3);
 INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'honey gingebread'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'honeycombs'), 2);
 INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'honey gingebread'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'eggs'), 1);
+
+/*Jam Factory*/
+-- INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'strawberry jam'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'strawberry'), 3);
+-- INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'peach marmalade'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'peach'), 3);
+-- INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'watermelon jam'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'watermelon'), 3);
+-- INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'plum jam'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'plum'), 3);
+-- INSERT INTO [portfolio].[township].[dependancies]([itemId], [parentId], [items]) VALUES ((SELECT Id FROM [portfolio].[township].[items] WHERE name = 'grapes'), (SELECT Id FROM [portfolio].[township].[items] WHERE name = 'grapes'), 3);
 
 GO
